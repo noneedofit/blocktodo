@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blockToDo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>blockToDo</h1>
+    </header>
+    <main>
+        <section class="task-input">
+            <label for="taskInput" class="task-label">Task:</label>
+            <input type="text" id="taskInput" placeholder="Enter your task here...">
+            <label for="taskPriority" class="priority-label">Priority:</label>
+            <select id="taskPriority">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <label for="taskDueDate" class="due-date-label">Due:</label>
+            <input type="date" id="taskDueDate">
+            <button onclick="newElement()" class="addBtn">Add</button>
+        </section>
+        <section class="task-options">
+            <select id="sortOptions" onchange="sortTasks()">
+                <option value="priority">Sort by Priority</option>
+                <option value="latestDue">Sort by Latest Due</option>
+                <option value="oldestDue">Sort by Oldest Due</option>
+            </select>
+            <select id="filterOptions" onchange="filterTasks()">
+                <option value="all">Priority Filter</option>
+                <option value="high">High Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="low">Low Priority</option>
+            </select>
+        </section>
+        <div class="divider"></div>
+        <section class="task-list">
+            <ul id="taskList"></ul>
+        </section>
+        <div class="divider"></div>
+        <button onclick="toggleCompletedTasks()" class="toggle-completed-btn">Show Completed Tasks</button>
+        <section class="completed-task-list" style="display: none;">
+            <ul id="completedTaskList"></ul>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+/* General Styles */
+body {
+    margin: 0;
+    background-color: #121212; /* Dark background for the body */
+    font-family: Arial, sans-serif;
+    color: #e0e0e0; /* Light text color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.task-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.task-label, .priority-label, .due-date-label {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+input#taskInput, select#taskPriority, input#taskDueDate {
+    width: 20%;
+    padding: 12px;
+    border: 2px solid #333;
+    border-radius: 25px;
+    background: #1e1e1e; /* Dark background for the input and dropdown */
+    color: #e0e0e0; /* Light text color */
+    margin-right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button.addBtn, button.filterBtn, button.sortBtn {
+    padding: 12px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button.addBtn:hover, button.filterBtn:hover, button.sortBtn:hover {
+    background: #555;
+}
+
+.task-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.task-options select, select#taskPriority {
+    padding: 12px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background 0.3s;
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14l-4.796-5.481C2.451 5.253 2.675 5 3.054 5h9.892c.38 0 .603.253.603.659 0 .106-.03.21-.09.3l-4.796 5.481a.513.513 0 0 1-.76 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+.task-options select:hover, select#taskPriority:hover {
+    background: #555;
+}
+
+.task-list {
+    width: 100%;
+}
+
+ul#taskList, ul#completedTaskList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul#taskList li, ul#completedTaskList li {
+    background: #1e1e1e; /* Dark background for the task list items */
+    margin: 5px 0; /* Reduced margin to make the task module smaller */
+    padding: 10px; /* Reduced padding to make the task module smaller */
+    font-size: 16px; /* Reduced font size to make the task module smaller */
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s;
+}
+
+ul#taskList li:hover, ul#completedTaskList li:hover {
+    background: #333; /* Darker background on hover */
+}
+
+ul#taskList li.checked, ul#completedTaskList li.checked {
+    background: #555; /* Greyish background for checked items */
+    color: #aaa;
+    position: relative;
+}
+
+ul#taskList li.checked::after, ul#completedTaskList li.checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #888888; /* Grey line for completed tasks */
+    transform: translateY(-50%);
+}
+
+/* Task Text Styles */
+.task-text {
+    flex: 1;
+    margin-left: 10px;
+}
+
+/* Due Date Styles */
+.due-date {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.due-date:hover {
+    color: #fff;
+}
+
+.due-date-input {
+    background: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Priority Tag Styles */
+.priority {
+    padding: 5px 10px;
+    border-radius: 12px;
+    margin-right: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.priority.high {
+    background-color: #ff0000; /* Red for high priority */
+    color: #fff;
+}
+
+.priority.medium {
+    background-color: #ffff00; /* Yellow for medium priority */
+    color: #000;
+}
+
+.priority.low {
+    background-color: #0000ff; /* Blue for low priority */
+    color: #fff;
+}
+
+/* Button Styles */
+.delete, .complete, .edit {
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.delete:hover {
+    color: #ff0000;
+}
+
+.complete:hover {
+    color: #00ff00;
+}
+
+.edit:hover {
+    color: #0000ff;
+}
+
+/* Divider Styles */
+.divider {
+    width: 100%;
+    height: 2px;
+    background: #333;
+    margin: 20px 0;
+}
+
+/* Completed Task List Styles */
+.completed-task-list {
+    width: 100%;
+}
+
+.toggle-completed-btn {
+    padding: 12px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-completed-btn:hover {
+    background: #555;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
